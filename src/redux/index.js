@@ -10,9 +10,9 @@ const ContextProvider = ({ children }) => (
   </CounterProvider>
 );
 
-export const useValues = (store) => {
-  const todos = useTodosValues(store);
-  const counter = useCounterValues(store);
+export const useValues = (slice) => {
+  const todos = useTodosValues(slice);
+  const counter = useCounterValues(slice);
   return { ...todos, ...counter };
 };
 

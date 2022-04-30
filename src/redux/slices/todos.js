@@ -1,17 +1,17 @@
 import createSlice from "../utils/createSlice";
 
-export const name = "todos";
-const initialState = { [name]: { todos: [{ text: "todo1" }] } };
+export const slice = "todos";
+const initialState = { [slice]: { todos: [{ text: "todo1" }] } };
 const reducer = () => {};
 
 const { useStateContext, ContextProvider } = createSlice(
   reducer,
   initialState,
-  name
+  slice
 );
 
-export const useValues = (store) => {
-  const state = useStateContext(store);
+export const useValues = (slice) => {
+  const state = useStateContext(slice);
   return state || {};
 };
 

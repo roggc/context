@@ -1,7 +1,7 @@
 import createSlice from "../utils/createSlice";
 
-export const name = "counter";
-const initialState = { [name]: { count: 0 } };
+export const slice = "counter";
+const initialState = { [slice]: { count: 0 } };
 
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
@@ -10,13 +10,13 @@ const EQUAL = "EQUAL";
 const reducer = (draft, action) => {
   switch (action.type) {
     case INCREMENT:
-      draft[name].count += 1;
+      draft[slice].count += 1;
       break;
     case DECREMENT:
-      draft[name].count -= 1;
+      draft[slice].count -= 1;
       break;
     case EQUAL:
-      draft[name].count = draft[name].count + 1 - 1;
+      draft[slice].count = draft[slice].count + 1 - 1;
       break;
     default:
       break;
@@ -26,7 +26,7 @@ const reducer = (draft, action) => {
 const { useDispatchContext, useStateContext, ContextProvider } = createSlice(
   reducer,
   initialState,
-  name
+  slice
 );
 
 export const useActions = () => {
@@ -34,11 +34,11 @@ export const useActions = () => {
   const increment = () => dispatch({ type: INCREMENT });
   const decrement = () => dispatch({ type: DECREMENT });
   const equal = () => dispatch({ type: EQUAL });
-  return { [name]: { increment, decrement, equal } };
+  return { [slice]: { increment, decrement, equal } };
 };
 
-export const useValues = (store) => {
-  const state = useStateContext(store);
+export const useValues = (slice) => {
+  const state = useStateContext(slice);
   return state || {};
 };
 
