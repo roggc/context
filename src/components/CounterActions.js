@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useActions } from "../redux/store";
-import { name } from "../redux/slices/counter";
+import { name as counter } from "../redux/slices/counter";
 
 const CounterActions = () => {
   const {
-    [name]: { increment, decrement, equal },
+    [counter]: { increment, decrement, equal },
   } = useActions();
   useEffect(() => {
     console.log("CounterActions rendered");

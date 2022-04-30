@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useValues } from "../redux/store";
-import { name } from "../redux/slices/todos";
+import { name as todos_ } from "../redux/slices/todos";
 
 const Todo = () => {
   const {
-    [name]: { todos },
-  } = useValues(name);
+    [todos_]: { todos },
+  } = useValues(todos_);
   useEffect(() => {
     console.log("Todo rendered");
   });

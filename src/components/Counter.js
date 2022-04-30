@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import {useActions,useValues} from "../redux/store";
-import { name } from "../redux/slices/counter";
+import { name as counter } from "../redux/slices/counter";
 
 const Counter = () => {
   const {
-    [name]: { increment, decrement, equal },
+    [counter]: { increment, decrement, equal },
   } = useActions();
   const {
-    [name]: { count },
-  } = useValues(name);
+    [counter]: { count },
+  } = useValues(counter);
   useEffect(() => {
     console.log("Counter rendered");
   });
