@@ -1,31 +1,24 @@
-import counter from "./slices/counter";
-import todos from "./slices/todos";
+import CounterProvider, {
+  useValues as useCounterValues,
+  useActions as useCounterActions,
+} from "./slices/counter";
+import TodosProvider, { useValues as useTodosValues } from "./slices/todos";
 
-const {
-  ContextProvider: CounterProvider,
-  useValues: useCounterValues,
-  useActions: useCounterActions,
-} = counter;
-const { ContextProvider: TodosProvider, useValues: useTodosValues } = todos;
+const ContextProvider = ({ children }) => (
+  <CounterProvider>
+    <TodosProvider>{children}</TodosProvider>
+  </CounterProvider>
+);
 
-const createStore = () => {
-  const ContextProvider = ({ children }) => (
-    <CounterProvider>
-      <TodosProvider>{children}</TodosProvider>
-    </CounterProvider>
-  );
-
-  const useValues = (store) => {
-    const todos = useTodosValues(store);
-    const counter = useCounterValues(store);
-    return { ...todos, ...counter };
-  };
-
-  const useActions = () => {
-    const counter = useCounterActions();
-    return { ...counter };
-  };
-  return { ContextProvider, useValues, useActions };
+export const useValues = (store) => {
+  const todos = useTodosValues(store);
+  const counter = useCounterValues(store);
+  return { ...todos, ...counter };
 };
 
-export default createStore();
+export const useActions = () => {
+  const counter = useCounterActions();
+  return { ...counter };
+};
+
+export default ContextProvider;

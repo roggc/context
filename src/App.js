@@ -1,17 +1,15 @@
 import Counter from "./components/Counter";
 import CounterActions from "./components/CounterActions";
 import Todos from "./components/Todos";
-import store from "./redux/store";
-
-const { ContextProvider } = store;
+import AppProvider from "./redux/store";
 
 function App() {
   return (
-    <ContextProvider>
+    <AppProvider>
       <Counter />
       <CounterActions />
       <Todos />
-    </ContextProvider>
+    </AppProvider>
   );
 }
 
