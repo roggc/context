@@ -1,9 +1,9 @@
-import makeStore from "../utils/makeStore";
+import createSlice from "../utils/createSlice";
 
 export const name = "todos";
 
-const makeTodoStore = (reducer, initialState, name) => {
-  const { useStateContext, ContextProvider } = makeStore(
+const createTodosSlice = (reducer, initialState, name) => {
+  const { useStateContext, ContextProvider } = createSlice(
     reducer,
     initialState,
     name
@@ -19,4 +19,4 @@ const makeTodoStore = (reducer, initialState, name) => {
 const initialState = { [name]: { todos: [{ text: "todo1" }] } };
 const reducer = () => {};
 
-export default makeTodoStore(reducer, initialState, name);
+export default createTodosSlice(reducer, initialState, name);

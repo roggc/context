@@ -1,7 +1,7 @@
 import Counter from "./components/Counter";
 import CounterActions from "./components/CounterActions";
 import Todos from "./components/Todos";
-import store from "./stores/store";
+import store from "./redux/store";
 
 const { ContextProvider } = store;
 

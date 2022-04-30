@@ -1,12 +1,12 @@
 import { createContext, useContext } from "react";
 import { useImmerReducer } from "use-immer";
 
-const makeStore = (reducer, initialState, name) => {
+const createSlice = (reducer, initialState, name) => {
   const stateContext = createContext();
   const dispatchContext = createContext();
 
-  const useStateContext = (store) =>
-    useContext(store === name ? stateContext : {});
+  const useStateContext = (slice) =>
+    useContext(slice === name ? stateContext : {});
   const useDispatchContext = () => useContext(dispatchContext);
 
   const ContextProvider = ({ children }) => {
@@ -22,4 +22,4 @@ const makeStore = (reducer, initialState, name) => {
   return { useStateContext, useDispatchContext, ContextProvider };
 };
 
-export default makeStore;
+export default createSlice;

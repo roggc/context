@@ -1,4 +1,4 @@
-import makeStore from "../utils/makeStore";
+import createSlice from "../utils/createSlice";
 
 export const name = "counter";
 
@@ -6,8 +6,8 @@ const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
 const EQUAL = "EQUAL";
 
-const makeCounterStore = (reducer, initialState, name) => {
-  const { useDispatchContext, useStateContext, ContextProvider } = makeStore(
+const createCounterSlice = (reducer, initialState, name) => {
+  const { useDispatchContext, useStateContext, ContextProvider } = createSlice(
     reducer,
     initialState,
     name
@@ -44,4 +44,4 @@ const reducer = (draft, action) => {
   }
 };
 
-export default makeCounterStore(reducer, initialState, name);
+export default createCounterSlice(reducer, initialState, name);

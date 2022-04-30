@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import store from "../stores/store";
-import { name } from "../stores/counter";
+import store from "../redux/store";
+import { name } from "../redux/slices/counter";
 
 const { useActions, useValues } = store;
 

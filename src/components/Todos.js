@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import store from "../stores/store";
-import { name } from "../stores/todos";
+import store from "../redux/store";
+import { name } from "../redux/slices/todos";
 
 const { useValues } = store;
 

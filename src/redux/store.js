@@ -1,22 +1,22 @@
-import counter from "./counter";
-import todos from "./todos";
+import counter from "./slices/counter";
+import todos from "./slices/todos";
 
 const {
   ContextProvider: CounterProvider,
   useValues: useCounterValues,
   useActions: useCounterActions,
 } = counter;
-const { ContextProvider: TodoProvider, useValues: useTodoValues } = todos;
+const { ContextProvider: TodosProvider, useValues: useTodosValues } = todos;
 
-const makeCombinedStore = () => {
+const createStore = () => {
   const ContextProvider = ({ children }) => (
     <CounterProvider>
-      <TodoProvider>{children}</TodoProvider>
+      <TodosProvider>{children}</TodosProvider>
     </CounterProvider>
   );
 
   const useValues = (store) => {
-    const todos = useTodoValues(store);
+    const todos = useTodosValues(store);
     const counter = useCounterValues(store);
     return { ...todos, ...counter };
   };
@@ -28,4 +28,4 @@ const makeCombinedStore = () => {
   return { ContextProvider, useValues, useActions };
 };
 
-export default makeCombinedStore();
+export default createStore();
