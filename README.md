@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Context API as redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project presents the use of context in react in a redux way, avoiding unnecessary rerenders.
 
-## Available Scripts
+## Install
 
-In the project directory, you can run:
+In the project directory, you can run **npm i** to install dependencies.
 
 ### `npm start`
 
