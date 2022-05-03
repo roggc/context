@@ -2,7 +2,10 @@ import {
   useValues as useCounterValues,
   useActions as useCounterActions,
 } from "./counter";
-import { useValues as useTodosValues } from "./todos";
+import {
+  useValues as useTodosValues,
+  useActions as useTodosActions,
+} from "./todos";
 import {
   useValues as usePaxSelectorValues,
   useActions as usePaxSelectorActions,
@@ -17,6 +20,7 @@ export const useValues = (slice) => ({
 
 export const useActions = () => ({
   ...useCounterActions(),
+  ...useTodosActions(),
   ...usePaxSelectorActions(),
 });
 
