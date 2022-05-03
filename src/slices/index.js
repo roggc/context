@@ -9,8 +9,6 @@ import {
 } from "./paxSelector";
 import { composeProviders } from "./utils";
 
-export const AppProvider = composeProviders();
-
 export const useValues = (slice) => ({
   ...useTodosValues(slice),
   ...useCounterValues(slice),
@@ -21,3 +19,5 @@ export const useActions = () => ({
   ...useCounterActions(),
   ...usePaxSelectorActions(),
 });
+
+export default composeProviders();
