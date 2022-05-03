@@ -23,16 +23,15 @@ const reducer = (draft, action) => {
   }
 };
 
-export const { useDispatch, useValues } = createSlice(
+export const { useActions, useValues } = createSlice(
   reducer,
   initialState,
-  slice
+  slice,
+  (useDispatch) => () => {
+    const dispatch = useDispatch();
+    const increment = () => dispatch({ type: INCREMENT });
+    const decrement = () => dispatch({ type: DECREMENT });
+    const equal = () => dispatch({ type: EQUAL });
+    return { [slice]: { increment, decrement, equal } };
+  }
 );
-
-export const useActions = () => {
-  const dispatch = useDispatch();
-  const increment = () => dispatch({ type: INCREMENT });
-  const decrement = () => dispatch({ type: DECREMENT });
-  const equal = () => dispatch({ type: EQUAL });
-  return { [slice]: { increment, decrement, equal } };
-};

@@ -1,4 +1,4 @@
-import { createSlice } from './utils';
+import { createSlice } from "./utils";
 
 export const slice = "paxSelector";
 const initialState = { [slice]: { adult: 1, child: 0, infant: 0 } };
@@ -12,14 +12,14 @@ const reducer = (draft, action) => {
       break;
   }
 };
-export const { useDispatch, useValues } = createSlice(
+
+export const { useActions, useValues } = createSlice(
   reducer,
   initialState,
-  slice
+  slice,
+  (useDispatch) => () => {
+    const dispatch = useDispatch();
+    const increaseInfant = () => dispatch({ type: INCREASE_INFANT });
+    return { [slice]: { increaseInfant } };
+  }
 );
-
-export const useActions = () => {
-  const dispatch = useDispatch();
-  const increaseInfant = () => dispatch({ type: INCREASE_INFANT });
-  return { [slice]: { increaseInfant } };
-};
