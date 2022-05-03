@@ -19,7 +19,13 @@ const createSlice = (reducer, initialState, name) => {
       </stateContext.Provider>
     );
   };
-  return { useStateContext, useDispatchContext, ContextProvider };
+
+  const useValues = (slice) => {
+    const state = useStateContext(slice);
+    return state || {};
+  };
+
+  return { useValues, useDispatch:useDispatchContext, ContextProvider };
 };
 
 export default createSlice;
