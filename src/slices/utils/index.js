@@ -1,7 +1,9 @@
 import { createContext, useContext } from "react";
 import { useImmerReducer } from "use-immer";
 
-const createSlice = (reducer, initialState, name) => {
+const providers = [];
+
+export const createSlice = (reducer, initialState, name) => {
   const stateContext = createContext();
   const dispatchContext = createContext();
 
@@ -25,7 +27,25 @@ const createSlice = (reducer, initialState, name) => {
     return state || {};
   };
 
-  return { useValues, useDispatch:useDispatchContext, ContextProvider };
+  providers.push(ContextProvider);
+
+  return {
+    useValues,
+    useDispatch: useDispatchContext,
+    Provider: ContextProvider,
+  };
 };
 
-export default createSlice;
+export const composeProviders = () => {
+  const NeutralProvider = ({ children }) => children;
+  return providers.reduce(
+    (AccProvider, Provider) =>
+      ({ children }) =>
+        (
+          <Provider>
+            <AccProvider>{children}</AccProvider>
+          </Provider>
+        ),
+    NeutralProvider
+  );
+};

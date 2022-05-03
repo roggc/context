@@ -1,4 +1,4 @@
-import createSlice from "./utils";
+import { createSlice } from "./utils";
 
 export const slice = "counter";
 const initialState = { [slice]: { count: 0 } };
@@ -23,7 +23,7 @@ const reducer = (draft, action) => {
   }
 };
 
-const { useDispatch, useValues, ContextProvider } = createSlice(
+export const { useDispatch, useValues } = createSlice(
   reducer,
   initialState,
   slice
@@ -36,7 +36,3 @@ export const useActions = () => {
   const equal = () => dispatch({ type: EQUAL });
   return { [slice]: { increment, decrement, equal } };
 };
-
-export {useValues}
-
-export default ContextProvider;

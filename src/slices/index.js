@@ -1,24 +1,15 @@
-import CounterProvider, {
+import {
   useValues as useCounterValues,
   useActions as useCounterActions,
 } from "./counter";
-import TodosProvider, { useValues as useTodosValues } from "./todos";
+import { useValues as useTodosValues } from "./todos";
+import { composeProviders } from "./utils";
 
-const ContextProvider = ({ children }) => (
-  <CounterProvider>
-    <TodosProvider>{children}</TodosProvider>
-  </CounterProvider>
-);
+export const AppProvider = composeProviders();
 
-export const useValues = (slice) => {
-  const todos = useTodosValues(slice);
-  const counter = useCounterValues(slice);
-  return { ...todos, ...counter };
-};
+export const useValues = (slice) => ({
+  ...useTodosValues(slice),
+  ...useCounterValues(slice),
+});
 
-export const useActions = () => {
-  const counter = useCounterActions();
-  return { ...counter };
-};
-
-export default ContextProvider;
+export const useActions = () => ({ ...useCounterActions() });
