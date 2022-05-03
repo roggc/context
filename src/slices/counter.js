@@ -1,4 +1,4 @@
-import { createSlice } from "./utils";
+import { createSlice } from "react-context-slices";
 
 export const slice = "counter";
 const initialState = { [slice]: { count: 0 } };

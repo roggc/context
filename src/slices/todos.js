@@ -1,4 +1,4 @@
-import { createSlice } from "./utils";
+import { createSlice } from "react-context-slices";
 
 export const slice = "todos";
 const initialState = { [slice]: { todos: [{ text: "todo1" }] } };

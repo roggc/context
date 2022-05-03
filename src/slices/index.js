@@ -10,7 +10,7 @@ import {
   useValues as usePaxSelectorValues,
   useActions as usePaxSelectorActions,
 } from "./paxSelector";
-import { composeProviders } from "./utils";
+import { composeProviders } from "react-context-slices";
 
 export const useValues = (slice) => ({
   ...useTodosValues(slice),
