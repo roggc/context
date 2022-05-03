@@ -1,4 +1,4 @@
-import createSlice from "../utils/createSlice";
+import createSlice from "./utils/createSlice";
 
 export const slice = "counter";
 const initialState = { [slice]: { count: 0 } };

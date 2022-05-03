@@ -1,8 +1,8 @@
 import CounterProvider, {
   useValues as useCounterValues,
   useActions as useCounterActions,
-} from "./slices/counter";
-import TodosProvider, { useValues as useTodosValues } from "./slices/todos";
+} from "./counter";
+import TodosProvider, { useValues as useTodosValues } from "./todos";
 
 const ContextProvider = ({ children }) => (
   <CounterProvider>

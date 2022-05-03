@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useActions } from "../redux";
-import { slice as counter } from "../redux/slices/counter";
+import { useActions } from "../slices";
+import { slice as counter } from "../slices/counter";
 
 const CounterActions = () => {
   const {

@@ -1,4 +1,4 @@
-import createSlice from "../utils/createSlice";
+import createSlice from "./utils/createSlice";
 
 export const slice = "todos";
 const initialState = { [slice]: { todos: [{ text: "todo1" }] } };

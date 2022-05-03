@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useValues } from "../redux";
-import { slice as todos_ } from "../redux/slices/todos";
+import { useValues } from "../slices";
+import { slice as todos_ } from "../slices/todos";
 
 const Todo = () => {
   const {

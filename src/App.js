@@ -1,7 +1,7 @@
 import Counter from "./components/Counter";
 import CounterActions from "./components/CounterActions";
 import Todos from "./components/Todos";
-import AppProvider from "./redux";
+import AppProvider from "./slices";
 
 function App() {
   return (
