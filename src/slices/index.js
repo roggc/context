@@ -24,4 +24,8 @@ export const useActions = () => ({
   ...usePaxSelectorActions(),
 });
 
+export { slice as counter } from "./counter";
+export { slice as todos } from "./todos";
+export { slice as paxSelector } from "./paxSelector";
+
 export default composeProviders();

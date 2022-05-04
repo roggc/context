@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useActions } from "../slices";
-import { slice as counter } from "../slices/counter";
+import { useActions, counter } from "../slices";
 
 const CounterActions = () => {
   const {

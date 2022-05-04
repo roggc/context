@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useValues, useActions } from "../slices";
-import { slice as paxSelector_ } from "../slices/paxSelector";
+import { useValues, useActions, paxSelector } from "../slices";
 
 const PaxSelector = () => {
-  const { [paxSelector_]: paxSelector } = useValues(paxSelector_);
+  const { [paxSelector]: paxNumber } = useValues(paxSelector);
   const {
-    [paxSelector_]: { increaseInfant },
+    [paxSelector]: { increaseInfant },
   } = useActions();
   useEffect(() => {
     console.log("PaxSelector rendered");
@@ -14,7 +13,7 @@ const PaxSelector = () => {
     <>
       <button onClick={increaseInfant}>increase infant</button>
       <ul>
-        {Object.entries(paxSelector).map(([key, value]) => (
+        {Object.entries(paxNumber).map(([key, value]) => (
           <li key={key}>{value}</li>
         ))}
       </ul>

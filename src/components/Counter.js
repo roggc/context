@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useActions, useValues } from "../slices";
-import { slice as counter } from "../slices/counter";
+import { useActions, useValues, counter } from "../slices";
 
 const Counter = () => {
   const {
