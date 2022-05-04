@@ -1,4 +1,4 @@
-import { createSlice } from "react-context-slices";
+import { createSlice } from "../lib";
 
 export const slice = "paxSelector";
 const initialState = { [slice]: { adult: 1, child: 0, infant: 0 } };
