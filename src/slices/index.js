@@ -12,6 +12,10 @@ import {
 } from "./paxSelector";
 import { composeProviders } from "react-context-slices";
 
+export { slice as counter } from "./counter";
+export { slice as todos } from "./todos";
+export { slice as paxSelector } from "./paxSelector";
+
 export const useValues = (slice) => ({
   ...useTodosValues(slice),
   ...useCounterValues(slice),
@@ -23,9 +27,5 @@ export const useActions = () => ({
   ...useTodosActions(),
   ...usePaxSelectorActions(),
 });
-
-export { slice as counter } from "./counter";
-export { slice as todos } from "./todos";
-export { slice as paxSelector } from "./paxSelector";
 
 export default composeProviders();
