@@ -1,6 +1,6 @@
-# Context API as redux
+# example of usage of react-context-slices
 
-This project presents the use of context in react in a redux way, avoiding unnecessary rerenders.
+This project uses the library react-context-slices, which enforces you to work with react context in an optimal way.
 
 ## Install
 
